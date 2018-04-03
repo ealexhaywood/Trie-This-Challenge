@@ -1,0 +1,18 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+######################
+# IDEs
+######################
+
+# Gradle
+.gradle
+gradle
+
+# Intellij
+**/.idea/**
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+
