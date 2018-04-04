@@ -3,8 +3,6 @@ package com.captivation.trie;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
-
 /**
  * Created by ealexhaywood on 4/4/18.
  */
