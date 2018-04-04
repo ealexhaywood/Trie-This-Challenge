@@ -1,7 +1,6 @@
 package com.captivation.trie;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -82,7 +81,7 @@ public class SimpleTrie implements Trie {
         }
 
         // Now that we're at the end of the prefix, we can build our words list
-        List<String> words = new LinkedList<>();
+        List<String> words = new ArrayList<>();
         if (child.isEnd()) {
             words.add(prefix);
         }
