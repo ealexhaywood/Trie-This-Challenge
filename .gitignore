@@ -4,6 +4,9 @@
 # IDEs
 ######################
 
+# Directories
+build
+
 # Gradle
 .gradle
 gradle
