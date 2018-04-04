@@ -1,5 +1,5 @@
 # Alex's Java Trie Implementation
-This is a trie implementation in Java.
+This is a trie implementation in Java.  It's a command line app that gives the user options to add, contains, or search the trie.  
 
 ### Build Requirements
 In order to build and run this program, you will need an installation of:
