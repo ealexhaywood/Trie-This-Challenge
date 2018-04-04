@@ -1,5 +1,7 @@
 package com.captivation.trie;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -64,7 +66,47 @@ public class SimpleTrie implements Trie {
 
     @Override
     public List<String> search(String prefix) {
-        return null;
+        Map<Character, Node> childNodes = rootNode.getChildNodes();
+
+        Node child = null;
+        for (int i = 0; i < prefix.length(); i++) {
+            child = childNodes.get(prefix.charAt(i));
+
+            // If a child doesn't exist, then nothing begins with this prefix
+            if (child == null) {
+                return null;
+            }
+
+            // Get child node's children to continue traversing
+            childNodes = child.getChildNodes();
+        }
+
+        // Now that we're at the end of the prefix, we can build our words list
+        List<String> words = new LinkedList<>();
+        if (child.isEnd()) {
+            words.add(prefix);
+        }
+
+        // Our recursive words list function
+        buildWordsList(prefix, words, child);
+
+        return words;
+    }
+
+    private void buildWordsList(String prefix, List<String> words, Node node) {
+        Map<Character, Node> childNodes = node.getChildNodes();
+        for (Map.Entry<Character, Node> entry : childNodes.entrySet()) {
+            Character c = entry.getKey();
+            Node child = entry.getValue();
+
+            if (child.isEnd()) {
+                words.add(prefix + c);
+            }
+
+            if (!child.getChildNodes().isEmpty()) {
+                buildWordsList(prefix + c, words, child);
+            }
+        }
     }
 
 }

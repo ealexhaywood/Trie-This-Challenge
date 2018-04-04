@@ -3,6 +3,8 @@ package com.captivation.trie;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * Created by ealexhaywood on 4/4/18.
  */
@@ -27,6 +29,7 @@ public class SimpleTrieTest {
 
         // Assert contains
         Assert.assertTrue(trie.contains("hello"));
+        Assert.assertFalse(trie.contains("hi"));
         Assert.assertTrue(trie.contains("this"));
         Assert.assertFalse(trie.contains("maybe"));
         Assert.assertTrue(trie.contains("is"));
@@ -35,5 +38,10 @@ public class SimpleTrieTest {
         Assert.assertFalse(trie.contains("good"));
         Assert.assertTrue(trie.contains("test"));
 
+
+        // Assert searching
+        Assert.assertTrue(trie.search("h").size() == 1);
+        Assert.assertTrue(trie.search("hello").size() == 1);
+        Assert.assertTrue(trie.search("t").size() == 2);
     }
 }
