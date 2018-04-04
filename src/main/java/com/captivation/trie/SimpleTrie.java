@@ -98,10 +98,12 @@ public class SimpleTrie implements Trie {
             Character c = entry.getKey();
             Node child = entry.getValue();
 
+            // If node is end of a word, add it to the list!
             if (child.isEnd()) {
                 words.add(prefix + c);
             }
 
+            // Otherwise, get its child nodes and pass the prefix + the next node's char value
             if (!child.getChildNodes().isEmpty()) {
                 buildWordsList(prefix + c, words, child);
             }
